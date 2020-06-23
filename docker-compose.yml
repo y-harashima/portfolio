@@ -1,0 +1,15 @@
+version: '3'
+services:
+  portfolio-front:
+    build:
+      context: .
+      dockerfile: ./build/local.Dockerfile
+    image: portfolio_local
+    container_name: portfolio_local
+    tty: true
+    volumes:
+      - ./web:/web
+    ports:
+      - "3001:3000"
+    restart: always
+    command: yarn run start
